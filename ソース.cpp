@@ -96,7 +96,7 @@ intmax_t Lastminuits(Clocker& In) {
 intmax_t Lastseconds(Clocker& In) {
 	return In.seconds;
 }
-//free bindable name chash.
+//free bindable name chash. plz finish to use original. maybe we need copyed.free original.
 int main() {
 	intmax_t Trap = 16;
 	intmax_t Tick_ = 60;
