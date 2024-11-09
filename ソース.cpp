@@ -17,6 +17,10 @@ TickCounter ConstructTicConter(intmax_t Trap) {
 
 	return T;
 }
+bool SetMaster(TickCounter&In,intmax_t N){
+	In.Master = N;
+	return true;
+}
 
 bool Inc(TickCounter& In) {
 	In.Master++;
@@ -97,6 +101,31 @@ int main() {
 	intmax_t Trap = 16;
 	intmax_t Tick_ = 60;
 	Clocker C = ConstructClocker(Trap);
+	time_t S = time(NULL);
+	//clock_t E = time(NULL);
+	time_t L = 3;
+
+	
+	while (Tick(C) <= Tick_) {
+		S = time(NULL);
+		while (S + L > time(NULL)) {
+			//need hardwere sleep.
+		}
+		Forward(C);
+		Update(C);
+		printf("%u:%u:%u  %u\r", Lasthour(C), Lastminuits(C), Lastseconds(C),time(NULL));
+	}
+
+	printf("%u:%u:%u", Lasthour(C), Lastminuits(C),Lastseconds(C));
+
+	return 0;
+
+ }
+/** /
+int main() {
+	intmax_t Trap = 16;
+	intmax_t Tick_ = 60;
+	Clocker C = ConstructClocker(Trap);
 	clock_t S = clock();
 	//clock_t E = clock();
 	clock_t L = 7;
@@ -117,3 +146,4 @@ int main() {
 	return 0;
 
  }
+ /**/
