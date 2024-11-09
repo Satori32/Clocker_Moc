@@ -96,14 +96,14 @@ intmax_t Lastminuits(Clocker& In) {
 intmax_t Lastseconds(Clocker& In) {
 	return In.seconds;
 }
-
+//free bindable name chash.
 int main() {
 	intmax_t Trap = 16;
 	intmax_t Tick_ = 60;
 	Clocker C = ConstructClocker(Trap);
 	time_t S = time(NULL);
 	//clock_t E = time(NULL);
-	time_t L = 3;
+	time_t L = 1;
 
 	
 	while (Tick(C) <= Tick_) {
